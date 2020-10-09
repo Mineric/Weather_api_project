@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script type="text/javascript" src="weather_forecast.js"></script>
+  <link rel="stylesheet" type="text/css" href="./weather_forecast.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
+
+  <title>INIAD-Weather</title>
+</head>
+
+<body>
+  <div class="container-lg- ">
+
+    <nav class="navbar navbar-dark bg-dark topNavBar">
+      <!-- Navbar content -->
+      <a class="topHeader" href="#">
+        <img onclick="start()" src="images/iniad-logo.png" width="60%" height="60%" class="d-inline-block align-top" alt="">
+      </a>
+    </nav>
+
+    <div class="row">
+
+      <div class="col border border-success-5" id="weather-display">
+        <div class="row">
+          <div class="col-2" id="img">
+            <img id="img-weather-icon" src="images/start.png" onclick="start();">
+          </div>
+
+          <!-- border border  -->
+
+          <div class="col weather-info-container">
+            <div class="weather-info">
+              <p id="day">--</p>
+              <p id="date"> -- -- -- </p>
+              <p id="temperature">0°C</p>
+              <p id="weather"> --- </p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <!-- onclick="weather(this.id)" important -->
+            <div class="row btn-grid">
+              <button onclick="weather(this.id);" class="btn btn-primary" id="monday" type="button" name="monday"> Mon</button>
+              <button onclick="weather(this.id);" class="btn btn-primary" id="tuesday" type="button" name="tuesday">Tue</button>
+              <button onclick="weather(this.id);" class="btn btn-primary" id="wednesday" type="button" name="monday">Wed</button>
+              <button onclick="weather(this.id);" class="btn btn-primary" id="thursday" type="button" name="tuesday">Thu</button>
+              <button onclick="weather(this.id);" class="btn btn-primary" id="friday" type="button" name="monday">Fri</button>
+              <button onclick="weather(this.id);" class="btn btn-primary" id="saturday" type="button" name="tuesday">Sat</button>
+              <button onclick="weather(this.id);" class="btn btn-primary" id="sunday" type="button" name="monday">Sun</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Consider adding border border-success-5 to class to see half layout -->
+      <div class="col " id="info-display">
+        <div class="row">
+          <!-- <div class="col"> -->
+          <div class="col border border-success-5 feature-grid" id="img-grid-0">
+
+            <h3> Current </h3> <br>
+
+            <div id="current-weather-info">
+
+            </div>
+            <!-- <img id="" src="images/question.png" > -->
+            <!-- <img src="icons/sorry.png" id="IMG" alt="sorry">
+                   <p1 id="today-weather">Sorry! The data is not available yet.</p1> -->
+            <!-- <p2 id="today-weather">Sorry! The data is not available yet.</p2> -->
+
+
+          </div>
+          <!-- <div class="col"> -->
+          <div class="col border border-success-5 feature-grid" id="img-grid-1">
+            <p>
+              <input id="location-input" type="text" placeholder="Tokyo"></input></input>
+              <img onclick=" findWeather();" src="icons\SVG\assets\search.svg" class="btn btn-primary" id="search-btn"></img>
+            </p>
+            <div id="map"></div>
+            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCQmcTCoxvxXpPHWwYQJG04bLkmtjbySjU&callback=initMap" async defer></script>
+            <script type="text/javascript">
+              document.getElementById('location-input').addEventListener("keyup", function(event) {
+                // Number 13 is the "Enter" key on the keyboard
+                if (event.keyCode === 13) {
+                  event.preventDefault();
+                  document.getElementById("search-btn").click();
+                }
+              });
+            </script>
+
+          </div>
+
+        </div>
+
+        <div class="" id="newFeatures-display">
+
+          <div class="row">
+            <div class="col border border-success-5 feature-grid" id="img-grid-2" style="display: none">
+              <h3 id="wind-humid-uv">
+                <p4>Wind </p4> &ensp; &ensp; &ensp; &ensp; &ensp; &ensp;<p4>Humidity</p4> &nbsp; &nbsp; &nbsp; &ensp; &nbsp; <p4>UV-Index</p4>
+              </h3> <br>
+              <div id="detail-weather-info">
+                <!-- <img src="icons/sorry.png" id="request-emoji-icon" alt="sorry">
+                    <p1>Sorry! The data is not available yet.</p1> -->
+              </div>
+            </div>
+          </div>
+
+
+
+          <div class="row">
+            <div class="col border border-success-5 feature-grid" id="img-grid-7" style="display: none">
+              <h3> Suggestions</h3> <br>
+              <div class="" id="suggested-items-info">
+
+              </div>
+              <!-- <img src="icons/sorry.png" id="request-emoji-icon" alt="sorry">
+                  <p1>Sorry! This features is not available yet.</p1> -->
+            </div>
+          </div>
+
+        </div>
+
+        <!-- <div class="row">
+              <div class="col border border-success-5 grid-4" id="img-grid-3">
+
+              </div>
+            </div> -->
+
+
+
+        <!-- <div class="row">
+              <div class="col border border-success-5 grid-4" id="img-grid-3">
+                <h3> Suggested items</h3> <br>
+                <img src="icons/sorry.png" id="request-emoji-icon" alt="sorry">
+                <p1>Sorry! This features is not available yet.</p1>
+              </div>
+            </div> -->
+
+        <!-- <div class="navbar" id="addFeature">
+              <button onclick="addFeature()" class="btn btn-primary"  id="addFeature" type="button" name="add" >Add Features</button>
+            </div>
+
+            <!-- Feature add Modal -->
+
+        <div id="featureModal" class="modal">
+          <!-- Modal content -->
+          <div class="feature-modal-content">
+            <!-- The close button &time -->
+            <span class="close">&times;</span>
+
+            <h3 id=modal-heading>Add Features</h3>
+
+            <img for="vehicle2" id="modal-feature-img" src="images/modalFeatures/featureUVI.png" alt="UVI feature"> </img>
+            <label class="switch">
+              <input type="checkbox" data-toggle="toggle" id="whu" name="whu" value="whu">
+              <span class="slider round"></span>
+            </label> <br>
+
+            <img for="vehicle3" id="modal-feature-img" src="images/modalFeatures/suggestions.png" alt="suggestions"> </img>
+            <label class="switch">
+              <input type="checkbox" data-toggle="toggle" id="suggestions" name="suggestions" value="suggestions">
+              <span class="slider round"></span>
+            </label> <br>
+
+
+            <br>
+            <!-- <button onclick="cancel()" class="btn btn-primary" id="cancel" type="button" name="">Cancel</button> -->
+            <button onclick="submit()" class="btn btn-primary" id="submit" type="button" name="">Submit</button>
+          </div>
+
+        </div>
+<!-- 
+        <script>
+          var modal = document.getElementById("featureModal");
+          var btn = document.getElementById("addFeature");
+          var span = document.getElementsByClassName("close")[0];
+
+          btn.onclick = function() {
+            modal.style.display = "block";
+          }
+
+          span.onclick = function() {
+            modal.style.display = "none";
+          }
+        </script> -->
+      </div>
+
+      <div class="row">
+        <div class="" id="add-feature-btn">
+          <img onclick="addFeature()" src="icons/SVG/addFeatureBtn.svg" width="40%" height="40%" id="addFeature" alt="">
+          <!-- <button onclick="addFeature()" class="btn btn-primary"  id="addFeature" type="button" name="add" >Add Features</button> -->
+        </div>
+        <!-- Feature add Modal -->
+        <div id="featureModal" class="modal">
+          <!-- Modal content -->
+          <div class="feature-modal-content">
+            <!-- The close button &time -->
+            <span class="close">&times;</span>
+            <p>Add Features</p>
+
+            <label for="vehicle1"> Daily weather </label>
+            <label class="switch">
+              <input type="checkbox" data-toggle="toggle" id="todaysWeather" name="daily-weather" value="todaysWeather">
+              <span class="slider round"></span>
+            </label> <br>
+
+            <label for="vehicle2"> Wind / Humidity / UV-Index </label>
+            <label class="switch">
+              <input type="checkbox" data-toggle="toggle" id="whu" name="whu" value="whu">
+              <span class="slider round"></span>
+            </label> <br>
+
+            <label for="vehicle3"> Suggestions </label>
+            <label class="switch">
+              <input type="checkbox" data-toggle="toggle" id="suggestions" name="suggestions" value="suggestions">
+              <span class="slider round"></span>
+            </label> <br>
+
+            <br>
+            <button onclick="submit()" class="btn btn-primary" id="submit" type="button" name=""></button>
+          </div>
+
+        </div>
+
+        <script>
+          var modal = document.getElementById("featureModal");
+          var btn = document.getElementById("addFeature");
+          var span = document.getElementsByClassName("close")[0];
+
+          btn.onclick = function() {
+            modal.style.display = "block";
+          }
+
+          span.onclick = function() {
+            modal.style.display = "none";
+          }
+        </script>
+
+      </div>
+
+    </div>
+
+</body>
+
+</html>
