@@ -1,5 +1,5 @@
 # Weather_api_project
-weather_forecast_site
+
 This is a Weather Forecast site project using Open Weather Map API. This website shows  seven days weather forecast and everyday weather condition that is updated hourly. The main purpose of this website is to provide the useful weekly/daily weather information in a short amount of time for the user. And to provide a good user experience with colorful, informative and easy to understand WEB user interface.
 In this project, I mainly put effort into Front-end development and UX design. I could learn a lots about JavaScript, API data handling, and Web design in this project. 
 (Open Weather Map API, Google map API, HTML, CSS, JS, Bootstrap, Adobe Illustrator, Adobe Photoshop)
