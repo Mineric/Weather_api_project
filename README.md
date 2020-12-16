@@ -4,4 +4,4 @@ This is a Weather Forecast site project using Open Weather Map API. This website
 In this project, I mainly put effort into Front-end development and UX design. I could learn a lots about JavaScript, API data handling, and Web design in this project. 
 (Open Weather Map API, Google map API, HTML, CSS, JS, Bootstrap, Adobe Illustrator, Adobe Photoshop)
 
-このプロジェクトは、「Open Weather Map API」を使用した天気予報サイトのプロジェクトです。 このウェブサイトの主な目的は、ユーザーに役立つ毎週/毎日の天気情報を短時間で提供することです。 また、魅力的、有益、理解しやすいWEB UIで優れたユーザー経験を提供しようと考えて開発したプロジェクトす。このプロジェクトでは、主にフロントエンドの開発や、UX デザインなどに力を入れています。JavaScript　や、APIデータ処理や、Webデザインなどについて学ぶことができました。
+このプロジェクトは、「Open Weather Map API」を使用した天気予報サイトのプロジェクトです。 このウェブサイトの主な目的は、ユーザーに役立つ毎週/毎日の天気情報を短時間で提供することです。 また、魅力的、有益、理解しやすいWEB UIで優れたユーザー経験を提供しようと考えて開発したプロジェクトす。このプロジェクトでは、主にフロントエンドの開発、UX デザインなどに力を入れています。JavaScript、APIデータ処理、Webデザインなどについて学ぶことができました。
